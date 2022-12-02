@@ -28,27 +28,27 @@
         fetch(url)
             .then((resp) => resp.json())
             .then(function(data) {
-                let movies = data["results"] ;
-                let convert_movie = Object.keys(movies);
-                return convert_movie.map(function(convert_movie) {
+                let movie = data["results"] ;
+                return movie.map(function(movie) {
                     let span = create('span');
                     let h1 = create('h1');
                     let p = create('p');
-                    h1.innerHTML = `${convert_movie.id}`;
-                    span.innerHTML = `${convert_movie.title}`;
-                    p.innerHTML = `${convert_movie.overview}`;
+                    h1.innerHTML = `${movie.title}`;
+                    p.innerHTML = `${movie.release_date}`;
+                    span.innerHTML = `${movie.overview}`;
                     append(ul, h1);
-                    append(ul, span);
                     append(ul, p);
-                    console.log(fetch(url))
-                })
+                    append(ul, span);
 
+
+                })
 
             })
             .catch(function(error) {
                 console.log(error);
             });
 
+      
 
     </script>
 </div>
