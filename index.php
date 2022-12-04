@@ -9,11 +9,18 @@
 </head>
 <body>
 <div>
+    <img src="" alt="">
     <h1>Welcome</h1>
+    <nav>
+        <a href=""> Plus populaires </a>
+        <a href=""> Mieux notés </a>
+        <a href=""> Ajouts récents </a>
+        <a href="recherche.php"> Recherche </a>
+    </nav>
     <ul id="movies"></ul>
 
-    <script>
 
+    <script>
         function create(element) {
             return document.createElement(element);
         }
@@ -33,10 +40,13 @@
                     let span = create('span');
                     let h1 = create('h1');
                     let p = create('p');
+                    let img = create('img');
                     h1.innerHTML = `${movie.title}`;
                     p.innerHTML = `${movie.release_date}`;
                     span.innerHTML = `${movie.overview}`;
+                    img.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/"+`${movie.poster_path}`;
                     append(ul, h1);
+                    append(ul, img);
                     append(ul, p);
                     append(ul, span);
 
