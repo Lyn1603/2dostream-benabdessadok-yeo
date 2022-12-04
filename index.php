@@ -11,12 +11,10 @@
 <div>
     <img src="" alt="">
     <h1>Welcome</h1>
-    <nav>
-        <a href=""> Plus populaires </a>
-        <a href=""> Mieux notés </a>
-        <a href=""> Ajouts récents </a>
-        <a href="recherche.php"> Recherche </a>
-    </nav>
+    <?php
+    require './tab_bar.php';
+
+    ?>
     <ul id="movies"></ul>
 
 
@@ -34,9 +32,9 @@
 
         fetch(url)
             .then((resp) => resp.json())
-            .then(function(data) {
-                let movie = data["results"] ;
-                return movie.map(function(movie) {
+            .then(function (data) {
+                let movie = data["results"];
+                return movie.map(function (movie) {
                     let span = create('span');
                     let h1 = create('h1');
                     let p = create('p');
@@ -44,7 +42,7 @@
                     h1.innerHTML = `${movie.title}`;
                     p.innerHTML = `${movie.release_date}`;
                     span.innerHTML = `${movie.overview}`;
-                    img.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/"+`${movie.poster_path}`;
+                    img.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/" + `${movie.poster_path}`;
                     append(ul, h1);
                     append(ul, img);
                     append(ul, p);
@@ -54,11 +52,9 @@
                 })
 
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 console.log(error);
             });
-
-      
 
     </script>
 </div>
