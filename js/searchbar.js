@@ -2,8 +2,8 @@ const url = 'https://api.themoviedb.org/3/movie/popular?api_key=f0fb6f1cd0d5b87f
 
 axios.get(url).then(response => {
     let search = document.querySelector("#search")
-    let showresults = document.querySelector('.showResults');
-    let results = response.data["title"]
+    let showresults = document.querySelector('#showResults');
+    let results = response.data["results"]
     showresults.innerHTML = "results : " + results
     search.addEventListener("keyup", (e) => {
         let searchLetter = e.target.value;
@@ -12,9 +12,10 @@ axios.get(url).then(response => {
         function SearchResults(char, element) {
             if (char.length > 2) {
                 for (let i = 0; i < element; i++) {
-                    if (results.textContent.toLowerCase().includes(char)) {
-
+                    if (element.textContent.toLowerCase().includes(char)) {
+                            showresults.innerHTML = element[i]
                     } else {
+                            showresults.innerHTML = "nous avons trouvé aucun résultat"
 
                     }
                 }

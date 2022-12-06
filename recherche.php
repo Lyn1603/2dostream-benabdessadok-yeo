@@ -5,17 +5,14 @@
 </head>
 <body>
 
-<form method="post">
+<form>
     <label>Search</label>
     <input type="text" id="search" name="search">
 </form>
 
-    <div class="showResults"></div>
-
-
-
+    <div id="showResults"></div>
 
 </body>
 </html>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
-<script src="search-bar.js"> </script>
+<script src="js/searchbar.js"> </script>
