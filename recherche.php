@@ -11,6 +11,7 @@
 </form>
 
     <div id="showResults"></div>
+    <div id="aresults"></div>
 
 </body>
 </html>
