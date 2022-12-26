@@ -10,26 +10,20 @@ axios.get(url).then(response => {
     })
 
     search.addEventListener("keyup", (e) => {
-        console.log(e)
-        function create(element) {
-            return document.createElement(element);
-        }
+        let aresults = document.querySelector('#showResults');
 
-        function append(parent, el) {
-            return parent.appendChild(el);
-        }
-        axios.get('https://api.themoviedb.org/3/movie/?query=?'
-            + this.value + '?api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&')
+        axios.get('https://api.themoviedb.org/3/search/movie?query='
+            + this.value + '&api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&language=fr')
             .then(response => {
-                search.innerHTML = response.data['total_results'];
+                aresults.innerHTML = "Films : " + response.data['total_results'];
                 if(response.data['total_results'] === 10000) {
-                    search.innerHTML += '+'
+                    showresults.innerHTML += '+'
                 }
-                response.data['results'].forEach(results => {
-                    if(document.querySelectorAll('ul.resultMovie li').length < 2){
-                        list.appendChild(document.createElement('li'));
-                        document.querySelector('ul.resultMovie li:last-child').innerHTML =
-                            '<a href="./movie.php?id='+results['id']+'">'+results['title']+'</a>';
+                response.data['results'].forEach(result => {
+                    if(showresults.length < 5){
+                        showresults.insertAdjacentHTML('beforeend', "<a>"+ result.title +"</a>")
+
+
                     }
                 })
             })
