@@ -13,17 +13,17 @@ axios.get(url).then(response => {
         let aresults = document.querySelector('#showResults');
 
         axios.get('https://api.themoviedb.org/3/search/movie?query='
-            + this.value + '&api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&language=fr')
+            + this.value + '&api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&language=en-US')
             .then(response => {
                 aresults.innerHTML = "Films : " + response.data['total_results'];
                 if(response.data['total_results'] === 10000) {
                     showresults.innerHTML += '+'
                 }
                 response.data['results'].forEach(result => {
-                    if(showresults.length < 5){
-                        showresults.insertAdjacentHTML('beforeend', "<a>"+ result.title +"</a>")
-
-
+                    if(aresults.length < 5){
+                        result.forEach((data) => {
+                            aresults.insertAdjacentHTML('beforeend', "<a>"+ data.title +"</a>")
+                        })
                     }
                 })
             })
