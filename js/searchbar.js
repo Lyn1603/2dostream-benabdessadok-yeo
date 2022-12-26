@@ -19,14 +19,14 @@ axios.get(url).then(response => {
             return parent.appendChild(el);
         }
         axios.get('https://api.themoviedb.org/3/movie/?query=?'
-            + this.value + '?api_key=f0fb6f1cd0d5b87fa09e82b0392cf375')
+            + this.value + '?api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&')
             .then(response => {
                 search.innerHTML = response.data['total_results'];
                 if(response.data['total_results'] === 10000) {
                     search.innerHTML += '+'
                 }
                 response.data['results'].forEach(results => {
-                    if(document.querySelectorAll('ul.resultMovie li').length < 5){
+                    if(document.querySelectorAll('ul.resultMovie li').length < 2){
                         list.appendChild(document.createElement('li'));
                         document.querySelector('ul.resultMovie li:last-child').innerHTML =
                             '<a href="./movie.php?id='+results['id']+'">'+results['title']+'</a>';
