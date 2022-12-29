@@ -11,7 +11,8 @@
 </form>
 
     <div id="showResults"></div>
-    <div id="aresults"></div>
+    <div id="resultmovies"></div>
+
 
 </body>
 </html>

@@ -17,13 +17,13 @@ axios.get(url).then(response => {
             .then(response => {
                 aresults.innerHTML = "Films : " + response.data['total_results'];
                 if(response.data['total_results'] === 10000) {
-                    showresults.innerHTML += '+'
+                    aresults.innerHTML += '+'
                 }
                 response.data['results'].forEach(result => {
-                    if(aresults.length < 5){
-                        result.forEach((data) => {
-                            aresults.insertAdjacentHTML('beforeend', "<a>"+ data.title +"</a>")
-                        })
+                    if(document.querySelectorAll('#resultmovies ').length < 2){
+                        aresults.appendChild( document.createElement('li'));
+                        document.querySelector('#resultmovies').insertAdjacentHTML('beforebegin', "<a>"+ result['title'] +"</a>");
+
                     }
                 })
             })
