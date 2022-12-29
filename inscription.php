@@ -53,8 +53,8 @@
 
 <?php
 session_start();
-require './user.php';
-require './connect.php';
+require 'class/user.php';
+require 'class/connect.php';
 if ($_POST) {
     $user = new user(
         $_POST['firstname'],
@@ -69,10 +69,9 @@ if ($_POST) {
         $connection = new connect();
         $result = $connection->insert($user);
 
-
         if ($result) {
             echo 'Register with success!';
-            header('Location:my-account.php');
+            header('Location:connexion.php');
         } else {
             echo 'Internal error snif';
         }

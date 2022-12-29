@@ -38,13 +38,12 @@ if ($_POST) {
     $password = $_POST['password'];
     $result = $connection->connexion($user, $password);
     var_dump($result);
-    if ($result['user'] === 1 and $result['password']) {
+    if ($result['exist'] === 0) {
         $_SESSION['id'] = $result['id'];
-        header('Location: admin.php');
+        header('Location: index.php');
     } else {
-        $_SESSION['id'] = $result['id'];
-        header('Location: my-account.php');
+        header('Location: connexion.php');
     }
-    $_SESSION['user'] = $result;
+    $_SESSION['user'] = $result['user'];
     echo 'veuillez remplir les champs';
 }

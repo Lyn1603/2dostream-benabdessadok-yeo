@@ -9,7 +9,14 @@
     <label>Search</label>
     <input type="text" id="search" name="search">
 </form>
-
+<li>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+</li>
     <div id="showResults"></div>
     <div id="resultmovies"></div>
 
