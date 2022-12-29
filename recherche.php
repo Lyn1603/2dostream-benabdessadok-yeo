@@ -9,14 +9,15 @@
     <label>Search</label>
     <input type="text" id="search" name="search">
 </form>
-<li>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-</li>
+<ul>
+    <button> Genre </button>
+    <button> Avis </button>
+    <button> Nom </button>
+    <button> Popularité </button>
+    <button> Vues </button>
+    <button> Classifications d'âges </button>
+
+</ul>
     <div id="showResults"></div>
     <div id="resultmovies"></div>
 
