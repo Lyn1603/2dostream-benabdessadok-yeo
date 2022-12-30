@@ -10,12 +10,13 @@
     <input type="text" id="search" name="search">
 </form>
 <ul>
-    <button> Genre </button>
-    <button> Avis </button>
-    <button> Nom </button>
-    <button> Popularité </button>
-    <button> Vues </button>
-    <button> Classifications d'âges </button>
+    <button class="genre" onclick="genre()"> Genre </button>
+    <div class="results"></div>
+    <button class="avis" onclick=""> Avis </button>
+    <button class="nom" onclick=""> Nom </button>
+    <button class="popular" onclick=""> Popularité </button>
+    <button class="vue" onclick=""> Vues </button>
+    <button class="age" onclick=""> Classifications d'âges </button>
 
 </ul>
     <div id="showResults"></div>
@@ -26,3 +27,4 @@
 </html>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
 <script src="js/searchbar.js"> </script>
+<script src="js/filter.js"> </script>
