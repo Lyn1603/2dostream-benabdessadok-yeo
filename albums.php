@@ -11,10 +11,6 @@
 <div>
     <img src="" alt="">
     <h1>Welcome</h1>
-    <?php
-    require './tab_bar.php';
-
-    ?>
     <ul id="movies"></ul>
 
 
