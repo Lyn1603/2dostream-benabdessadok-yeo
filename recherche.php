@@ -12,6 +12,7 @@
 <ul>
     <button class="genre" onclick="genre()"> Genre </button>
     <div class="results"></div>
+    <div class="results1"></div>
     <button class="avis" onclick=""> Avis </button>
     <button class="nom" onclick=""> Nom </button>
     <button class="popular" onclick=""> Popularité </button>
