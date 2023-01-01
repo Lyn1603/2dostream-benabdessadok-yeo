@@ -1,23 +1,21 @@
-import axios from "axios";
-
 function genre() {
-    fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=f0fb6f1cd0d5b87fa09e82b0392cf375")
-        .then((resp) => resp.json())
-        .then(function (data) {
-            let genres = data["genres"];
-            let results = document.querySelector(".results")
-            genres.forEach((data) => {
-                results.insertAdjacentHTML('beforeend', "<button onclick='results_genre()'>" + data['name'] + "</button>")
-
-            })
+    axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&language=en-US")
+        .then(response => {
+        let results = response.data["genres"]
+        let results_genre = document.querySelector(".results_genre")
+        results.forEach((data) => {
+            results_genre.insertAdjacentHTML('beforeend', "<button onclick='results_genre()'>"+ data.name +"</button>")
         })
-        .catch(function (error) {
-            console.log(error);
-        });
+    })
 }
 
 function results_genre(){
-    axios.get("").then(response => {
+    axios.get('https://api.themoviedb.org/3/discover/movie?api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&with_genres='
+        + this.value + '&api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&language=en-US')
+        .then(response => {
+            let genre = response.data["genre_ids"]
+            let list_genre = document.querySelector(".list_genres")
+                console.log(genre)
 
-    })
+        })
 }
