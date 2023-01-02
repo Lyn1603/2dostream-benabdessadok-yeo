@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Recherche</title>
 </head>
 <body>
@@ -12,8 +16,8 @@
 <ul>
     <button class="genre" onclick="genre()"> Genre </button>
     <div class="results_genre"></div>
-    <div class="list_genres"></div>
-    <button class="avis" onclick=""> Avis </button>
+    <button class="avis" onclick="avis()"> Avis </button>
+    <div class="results_avis"></div>
     <button class="nom" onclick=""> Nom </button>
     <button class="popular" onclick=""> Popularité </button>
     <button class="vue" onclick=""> Vues </button>
