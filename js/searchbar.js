@@ -7,11 +7,11 @@ let aresults = document.querySelector('#showResults');
 let results = []
 
 search.addEventListener("keyup", (e) => {
-    let h1s =  aresults.getElementsByTagName("h1");
+    let h1s = aresults.getElementsByTagName("h1");
     //console.log(h1s)
     let val = search.value.toUpperCase();
     for (let i = 0; i < h1s.length; i++) {
-        let a  = h1s[i].textContent || h1s[i].innerText;
+        let a = h1s[i].textContent || h1s[i].innerText;
         //console.log(a)
         if (a.toUpperCase().indexOf(val) > -1) {
             h1s[i].style.display = "";
@@ -28,12 +28,23 @@ axios.get(url).then(response => {
 
     results.forEach((data) => {
         let a = document.createElement("h1");
+        let c = document.createElement("p");
+
         a.innerHTML = data.title
-        console.log(data.genre_ids)
+        c.innerHTML = data.popularity
         for (let i = 0; i < data.genre_ids.length; i++) {
             a.classList.add(data.genre_ids[i])
         }
+
+        for (let x = 0; x < data.popularity; x++) {
+            c.classList.add(data.popularity)
+        }
+
         showresults.appendChild(a)
+        showresults.appendChild(c)
+
+
+
     })
 })
 
@@ -51,12 +62,13 @@ function genre() {
                 a.innerHTML = data.name
                 a.id = data.id
                 results_genre.appendChild(a);
-                a.addEventListener("click",()=>{
-          //          console.log(a.id)
+                console.log(a.innerHTML)
+                a.addEventListener("click", () => {
+                    //  console.log(a.id)
                     let res = showresults.getElementsByTagName("h1");
                     for (let i = 0; i < res.length; i++) {
-                        let b  = res[i]
-            //            console.log(b)
+                        let b = res[i]
+                        //            console.log(b)
                         if (b.classList.contains(a.id)) {
                             res[i].style.display = "";
                         } else {
@@ -71,34 +83,29 @@ function genre() {
 }
 
 function avis() {
+
     axios.get(url)
         .then(response => {
             let results = response.data["results"]
-            //console.log(results)
-            let results_avis = document.querySelector(".results_avis")
-
+            let results_avis = document.querySelector("#results_avis")
             results.forEach((data) => {
-                //console.log(data)
-                //results_genre.insertAdjacentHTML('beforeend', "<button onclick='results_genre()'>"+ data.name +"</button>")
-                let a = document.createElement("button");
-                a.innerHTML = data.vote_average
-                a.id = data.title
-                results_avis.appendChild(a);
-                a.addEventListener("click",()=>{
-                              //console.log(a.id)
-                    let res = showresults.getElementsByTagName("h1");
-                    for (let i = 0; i < res.length; i++) {
-                        let b  = res[i]
-                        //            console.log(b)
-                        if (b.classList.contains(a.id)) {
-                            res[i].style.display = "";
-                        } else {
-                            res[i].style.display = "none";
-                        }
+                let b = document.createElement("button");
+                b.innerHTML = data.popularity
+                b.id = data.popularity
+                results_avis.appendChild(b);
+                b.addEventListener("click", () => {
+                    let res = showresults.getElementsByTagName("p");
+                    for (let x = 0; x < res.length; x++) {
+                            let b = res[0]
+                            let h = hide[0]
+
                     }
+
+
                 })
 
 
             })
         })
+
 }

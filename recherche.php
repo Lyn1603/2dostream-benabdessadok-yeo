@@ -17,7 +17,7 @@
     <button class="genre" onclick="genre()"> Genre </button>
     <div class="results_genre"></div>
     <button class="avis" onclick="avis()"> Avis </button>
-    <div class="results_avis"></div>
+    <div id="results_avis"></div>
     <button class="nom" onclick=""> Nom </button>
     <button class="popular" onclick=""> Popularité </button>
     <button class="vue" onclick=""> Vues </button>
@@ -25,7 +25,6 @@
 
 </ul>
     <div id="showResults"></div>
-    <div id="resultmovies"></div>
 
 
 </body>
