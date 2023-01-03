@@ -27,10 +27,10 @@ axios.get(url).then(response => {
     //console.log(response.data["results"])
 
     results.forEach((data) => {
-        let a = document.createElement("h1");
+        let a = document.createElement("a");
         let c = document.createElement("p");
 
-        a.innerHTML = data.title
+        a.innerHTML = '<a href="./single.php?id='+results['id']+'">' + data.title + "</a>"
         c.innerHTML = data.popularity
         for (let i = 0; i < data.genre_ids.length; i++) {
             a.classList.add(data.genre_ids[i])
@@ -40,7 +40,6 @@ axios.get(url).then(response => {
         for (let x = 0; x < data.popularity; x++) {
             c.classList.add(data.popularity)
         }
-
 
         showresults.appendChild(a)
         showresults.appendChild(c)
