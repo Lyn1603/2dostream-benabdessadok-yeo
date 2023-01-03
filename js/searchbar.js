@@ -95,9 +95,14 @@ function avis() {
                 results_avis.appendChild(b);
                 b.addEventListener("click", () => {
                     let res = showresults.getElementsByTagName("p");
+
                     for (let x = 0; x < res.length; x++) {
                             let b = res[0]
-                            let h = hide[0]
+                            showresults.innerHTML = "<a href='connexion.php'>" + data.title + "</a>"
+
+
+
+
 
                     }
 

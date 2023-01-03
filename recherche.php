@@ -18,6 +18,7 @@
     <div class="results_genre"></div>
     <button class="avis" onclick="avis()"> Avis </button>
     <div id="results_avis"></div>
+    <div id="show_avis"></div>
     <button class="nom" onclick=""> Nom </button>
     <button class="popular" onclick=""> Popularité </button>
     <button class="vue" onclick=""> Vues </button>
