@@ -16,11 +16,9 @@
 <ul>
     <button class="genre" onclick="genre()"> Genre </button>
     <div class="results_genre"></div>
-    <button class="avis" onclick="avis()"> Avis </button>
-    <div id="results_avis"></div>
-    <div id="show_avis"></div>
-    <button class="nom" onclick=""> Nom </button>
-    <button class="popular" onclick=""> Popularité </button>
+    <button class="avis" onclick=""> Avis </button>
+    <button class="popular" onclick="popular()"> Popularité </button>
+    <div id="results_popular"></div>
     <button class="vue" onclick=""> Vues </button>
     <button class="age" onclick=""> Classifications d'âges </button>
 

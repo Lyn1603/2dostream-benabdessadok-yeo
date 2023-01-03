@@ -34,11 +34,13 @@ axios.get(url).then(response => {
         c.innerHTML = data.popularity
         for (let i = 0; i < data.genre_ids.length; i++) {
             a.classList.add(data.genre_ids[i])
+
         }
 
         for (let x = 0; x < data.popularity; x++) {
             c.classList.add(data.popularity)
         }
+
 
         showresults.appendChild(a)
         showresults.appendChild(c)
@@ -82,12 +84,12 @@ function genre() {
         })
 }
 
-function avis() {
+function popular() {
 
-    axios.get(url)
+    axios.get("https://api.themoviedb.org/3/discover/movie?api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&language=en-US&sort_by=popularity.desc")
         .then(response => {
             let results = response.data["results"]
-            let results_avis = document.querySelector("#results_avis")
+            let results_avis = document.querySelector("#results_popular")
             results.forEach((data) => {
                 let b = document.createElement("button");
                 b.innerHTML = data.popularity
@@ -96,13 +98,15 @@ function avis() {
                 b.addEventListener("click", () => {
                     let res = showresults.getElementsByTagName("p");
 
+
                     for (let x = 0; x < res.length; x++) {
-                            let b = res[0]
-                            showresults.innerHTML = "<a href='connexion.php'>" + data.title + "</a>"
+                            let b = res[x]
 
-
-
-
+                        if (b.classList.contains(data.popularity)){
+                            b.style.display = ""
+                        }else{
+                            b.style.display = "none"
+                        }
 
                     }
 
