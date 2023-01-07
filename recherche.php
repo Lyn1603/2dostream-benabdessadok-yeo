@@ -16,10 +16,8 @@
 <ul>
     <button class="genre" onclick="genre()"> Genre </button>
     <div class="results_genre"></div>
-    <button class="avis" onclick=""> Avis </button>
     <button class="popular" onclick="popular()"> Popularité </button>
     <div id="results_popular"></div>
-    <button class="vue" onclick=""> Vues </button>
     <button class="age" onclick=""> Classifications d'âges </button>
 
 </ul>
@@ -30,4 +28,3 @@
 </html>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
 <script src="js/searchbar.js"> </script>
-<script src="js/filter.js"> </script>

@@ -27,14 +27,21 @@ axios.get(url).then(response => {
     //console.log(response.data["results"])
 
     results.forEach((data) => {
-        let a = document.createElement("a");
-        let c = document.createElement("p");
+        let a = document.createElement("h1");
+        let b = document.createElement("p");
+        let c = document.createElement("div");
 
-        a.innerHTML = '<a href="./single.php?id='+results['id']+'">' + data.title + "</a>"
-        c.innerHTML = data.popularity
+        a.innerHTML =  data.title
+        b.innerHTML = data.popularity
+        c.innerHTML = '<a href="./single.php?id='+results['id']+'">' + "Consulter le film" + "</a>"
+
         for (let i = 0; i < data.genre_ids.length; i++) {
             a.classList.add(data.genre_ids[i])
 
+        }
+
+        for (let x = 0; x < data.popularity; x++) {
+            b.classList.add(data.popularity)
         }
 
         for (let x = 0; x < data.popularity; x++) {
@@ -42,6 +49,7 @@ axios.get(url).then(response => {
         }
 
         showresults.appendChild(a)
+        showresults.appendChild(b)
         showresults.appendChild(c)
 
 
@@ -63,18 +71,27 @@ function genre() {
                 a.innerHTML = data.name
                 a.id = data.id
                 results_genre.appendChild(a);
-                console.log(a.innerHTML)
+                //console.log(a.innerHTML)
                 a.addEventListener("click", () => {
                     //  console.log(a.id)
                     let res = showresults.getElementsByTagName("h1");
+                    let res1 = showresults.getElementsByTagName("p");
+                    let res2 = showresults.getElementsByTagName("a");
+
                     for (let i = 0; i < res.length; i++) {
                         let b = res[i]
-                        //            console.log(b)
-                        if (b.classList.contains(a.id)) {
-                            res[i].style.display = "";
-                        } else {
-                            res[i].style.display = "none";
+                        let b1 = res1[i]
+                        let b2 = res2[i]
+                        b1.style.opacity = "0";
+                        b2.style.opacity = "0";
+                        if (b.classList.contains(a.id)){
+                            b.style.display = ""
+                            b1.style.opacity = "1";
+                            b2.style.opacity = "1";
+                        }else{
+                            b.style.display = "none"
                         }
+
                     }
                 })
 
@@ -96,13 +113,20 @@ function popular() {
                 results_avis.appendChild(b);
                 b.addEventListener("click", () => {
                     let res = showresults.getElementsByTagName("p");
-
+                    let res1 = showresults.getElementsByTagName("h1");
+                    let res2 = showresults.getElementsByTagName("a");
 
                     for (let x = 0; x < res.length; x++) {
-                            let b = res[x]
-
+                        let b = res[x]
+                        let b1 = res1[x]
+                        let b2 = res2[x]
+                        b1.style.opacity = "0";
+                        b2.style.opacity = "0";
                         if (b.classList.contains(data.popularity)){
                             b.style.display = ""
+                            b1.style.opacity = "1";
+                            b2.style.opacity = "1";
+
                         }else{
                             b.style.display = "none"
                         }
