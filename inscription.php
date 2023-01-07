@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1> Bonjour </h1>
-<img src="./images/Logo_de_la_SPA__France_-removebg-preview.png" width="50px">
+<img src="" alt="logo 2dostream" width="50px">
 <h3> Inscrivez-vous </h3>
 <br>
 <form method="post">
