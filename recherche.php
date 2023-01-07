@@ -19,6 +19,7 @@
     <button class="popular" onclick="popular()"> Popularité </button>
     <div id="results_popular"></div>
     <button class="age" onclick=""> Classifications d'âges </button>
+    <div id="results_adults"></div>
 
 </ul>
     <div id="showResults"></div>
