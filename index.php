@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1> Bonjour </h1>
-<img src="./images/Logo_de_la_SPA__France_-removebg-preview.png" width="50px">
+<img src="" alt="logo 2doStream" >
 <h3> Connectez-vous </h3>
 <form method="post">
     <label> Email </label>
@@ -26,6 +26,10 @@
     <br>
     <br>
     <input type="submit" value="OK" name="verify"/>
+    <br>
+    <?php
+    echo '<a href="inscription.php">Jamais inscrit, inscrivez-vous </a>';
+    ?>
 </form>
 </body>
 </html>
@@ -39,7 +43,7 @@ if ($_POST) {
     $result = $connection->connexion($user, $password);
     if ($result['exist'] === 0) {
         $_SESSION['id'] = $result['id'];
-        header('Location: index.php');
+        header('Location: movies.php');
     } else {
         header('Location: connexion.php');
     }

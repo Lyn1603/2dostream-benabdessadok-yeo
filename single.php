@@ -22,7 +22,7 @@
             let h3 = document.createElement('h3');
             let p = document.createElement('p');
             let img = document.createElement('img');
-            h1.innerHTML = data.original_title;
+            h1.innerHTML = data.title;
             h3.innerHTML = "<h2>"+ "Résumer :" + "</h2>" + data.overview;
             p.innerHTML = " Date de réalisation : "+ data.release_date;
             img.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/" + data.poster_path ;

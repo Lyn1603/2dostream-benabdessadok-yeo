@@ -15,7 +15,7 @@
 </form>
 <ul>
     <button class="genre" onclick="genre()"> Genre </button>
-    <div class="results_genre"></div>
+    <div class="results_genre"> </div>
     <button class="popular" onclick="popular()"> Popularité </button>
     <div id="results_popular"></div>
     <button class="age" onclick=""> Classifications d'âges </button>

@@ -3,16 +3,13 @@ const url = 'https://api.themoviedb.org/3/movie/popular?api_key=f0fb6f1cd0d5b87f
 
 let showresults = document.querySelector('#showResults');
 let search = document.querySelector("#search")
-let aresults = document.querySelector('#showResults');
 let results = []
 
 search.addEventListener("keyup", (e) => {
-    let h1s = aresults.getElementsByTagName("h1");
-    //console.log(h1s)
+    let h1s = showresults.getElementsByTagName("h1");
     let val = search.value.toUpperCase();
     for (let i = 0; i < h1s.length; i++) {
         let a = h1s[i].textContent || h1s[i].innerText;
-        //console.log(a)
         if (a.toUpperCase().indexOf(val) > -1) {
             h1s[i].style.display = "";
         } else {
@@ -34,7 +31,7 @@ axios.get(url).then(response => {
 
 
         a.innerHTML =  data.title
-        b.innerHTML = data.popularity
+        b.innerHTML =  data.popularity
         c.innerHTML = '<a href="./single.php?id='+data.id+'">' + "Consulter le film" + "</a>"
         img.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/" + data.poster_path;
 
@@ -73,7 +70,7 @@ axios.get(url).then(response => {
 })
 
 function genre() {
-    axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&language=en-US")
+    axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&language=fr")
         .then(response => {
             let results = response.data["genres"]
             //console.log(results)

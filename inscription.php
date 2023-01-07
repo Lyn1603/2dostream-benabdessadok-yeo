@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1> Bonjour </h1>
-<img src="" alt="logo 2dostream" width="50px">
+<img src="" alt="logo 2dostream" >
 <h3> Inscrivez-vous </h3>
 <br>
 <form method="post">
@@ -45,7 +45,7 @@
     <br>
     <input  class="button" type="submit" value="OK" />
     <?php
-    echo '<a href="connexion.php">Déja inscrit, connectez-vous </a>';
+    echo '<a href="index.php">Déja inscrit, connectez-vous </a>';
     ?>
 </form>
 </body>

@@ -5,18 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Acceuil</title>
+    <title>Films à l'affiche</title>
 </head>
 <body>
 <div>
-    <img src="" alt="">
-    <h1>Bienvenue
-        <?php
-        require 'class/connect.php';
-        session_start();
-        echo $_SESSION['firstname'] ;
-        ?>
-    </h1>
+    <h1> Films à l'affiche </h1>
 
     <?php
     require './tab_bar.php';
@@ -45,7 +38,8 @@
                     let h1 = create('h1');
                     let p = create('p');
                     let img = create('img');
-                    let div = create('div')
+                    let div = create('button');
+                    let br = create('br');
                     h1.innerHTML = `${movie.title}`;
                     p.innerHTML = `${movie.release_date}`;
                     span.innerHTML = `${movie.overview}`;
@@ -55,6 +49,7 @@
                     append(ul, img);
                     append(ul, p);
                     append(ul, span);
+                    append(ul, br);
                     append(ul, div);
 
 
