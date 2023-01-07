@@ -4,49 +4,41 @@
 </head>
 
 <body>
-<ul class="movies"></ul>
+<div id="movies"></div>
 
 
 
 </body>
+
 <script>
-    function create(element) {
-        return document.createElement(element);
-    }
-
-    function append(parent, el) {
-        return parent.appendChild(el);
-    }
-
-    let ul = document.getElementsByClassName('movies');
-    let url = 'https://api.themoviedb.org/3/movie/<?=$_GET['id']?>&?api_key=f0fb6f1cd0d5b87fa09e82b0392cf375';
-    console.log(url);
-
-    axios.post(url)
+    let ul = document.querySelector("#movies");
+    let url = 'https://api.themoviedb.org/3/movie/<?=$_GET['id']?>&?api_key=f0fb6f1cd0d5b87fa09e82b0392cf375&language=fr';
+    console.log(url)
+    fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
 
-            let movies = data['results'];
-            console.log(movies)
-            return movies.map(function () {
-                let span = create('span');
-                let h1 = create('h1');
-                let p = create('p');
-                let img = create('img');
-                h1.innerHTML = `${data.title}`;
-                p.innerHTML = `${data.release_date}`;
-                span.innerHTML = `${data.overview}`;
-                img.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/" + `${data.poster_path}`;
-                append(ul, h1);
-                append(ul, img);
-                append(ul, p);
-                append(ul, span);
-            })
+            let h1 = document.createElement('h1');
+            let h3 = document.createElement('h3');
+            let p = document.createElement('p');
+            let img = document.createElement('img');
+            h1.innerHTML = data.original_title;
+            h3.innerHTML = "<h2>"+ "Résumer :" + "</h2>" + data.overview;
+            p.innerHTML = " Date de réalisation : "+ data.release_date;
+            img.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/" + data.poster_path ;
+            ul.appendChild(h1);
+            ul.appendChild(img);
+            ul.appendChild(h3);
+            ul.appendChild(p);
+
+
+
+
 
         })
-
         .catch(function (error) {
             console.log(error);
         });
+
 </script>
 </html>
