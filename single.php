@@ -6,8 +6,6 @@
 <body>
 <div id="movies"></div>
 
-
-
 </body>
 
 <script>

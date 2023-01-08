@@ -10,7 +10,6 @@ class user
         public string $password1,
     )
     {
-
     }
 
     public function verify(): bool
@@ -28,8 +27,6 @@ class user
 
 
     }
-
-
 
 
 }
