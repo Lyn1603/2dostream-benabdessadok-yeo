@@ -6,7 +6,7 @@ class connect
 
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:dbname=2doStream;host=127.0.0.1', 'root', '');
+        $this->pdo = new PDO('mysql:dbname=2dostream;host=127.0.0.1', 'root', '');
     }
 
     public function insert(user $user)
