@@ -81,7 +81,6 @@ CREATE TABLE `user` (
   `email` varchar(250) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `password` varchar(250) DEFAULT NULL,
-  `exist` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
@@ -98,9 +97,9 @@ INSERT INTO `album` (`id`, `name`, `views`, `isprivate`, `likes`) VALUES
 (1, 'One Peice Red', NULL, 0, NULL);
 
 
-INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `age`, `password`, `exist`) VALUES
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `age`, `password`) VALUES
 (1, 'Lynda', 'Benabdessadok', 'lynda.benabdessadok@edu.devinci.fr', 19, 'bb980824ae998bd9910de1516e91330c', 0);
-INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `age`, `password`, `exist`) VALUES
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `age`, `password`) VALUES
 (2, 'Sara', 'Yeo', 'kpeusseu-sara-fiela.yeo@edu.devinci.fr', 18, 'e4703d6dbca3a6ec211d82f4dd116b84', 0);
 
 
