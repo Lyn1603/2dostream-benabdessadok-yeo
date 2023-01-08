@@ -25,6 +25,26 @@ CREATE TABLE `album_owner` (
   CONSTRAINT `album_owner_ibfk_2` FOREIGN KEY (`album_id`) REFERENCES `album` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `invitation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) DEFAULT NULL,
+  `album_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `creation_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `album_id` (`album_id`),
+  CONSTRAINT `invitation_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `invitation_ibfk_2` FOREIGN KEY (`album_id`) REFERENCES `album` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `later_on` (
+  `movie_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `later_on_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `likes_owner` (
   `user_id` int(11) NOT NULL,
   `album_id` int(11) NOT NULL,
@@ -38,6 +58,13 @@ CREATE TABLE `movie` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `API_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `movie_album` (
+  `album_id` int(11) NOT NULL,
+  `movie_id` int(11) NOT NULL,
+  KEY `album_id` (`album_id`),
+  CONSTRAINT `movie_album_ibfk_1` FOREIGN KEY (`album_id`) REFERENCES `album` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `profile` (
