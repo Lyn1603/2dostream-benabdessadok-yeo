@@ -7,5 +7,5 @@ if(isset($_GET['id'])){
     $connection->delete($_GET['id']);
 
     // redirect to users.php url
-    header('Location: my-account.php');
+    header('Location: index.php');
 }
