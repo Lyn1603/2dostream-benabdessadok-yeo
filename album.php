@@ -73,7 +73,7 @@ if($_GET && isset($_GET['id'])){
                     <h2>participer :</h2>
                     <form  action="./invitation/index.php" method="post">
                         <input type="hidden" name="album" value="<?=($_GET['id'])?>">
-                        <button class=" hover:underline underline-offset-4" type="submit">lien</button>
+                        <button  type="submit">lien</button>
                     </form>
                 </div>
             </div>
