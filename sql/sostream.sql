@@ -7,6 +7,15 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+CREATE TABLE `add_owner` (
+  `movie_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  KEY `movie_id` (`movie_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `add_owner_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`),
+  CONSTRAINT `add_owner_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `album` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -14,7 +23,7 @@ CREATE TABLE `album` (
   `isprivate` tinyint(1) DEFAULT '0',
   `likes` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `album_owner` (
   `user_id` int(11) NOT NULL,
@@ -72,7 +81,7 @@ CREATE TABLE `profile` (
   `user_id` int(11) DEFAULT NULL,
   `informations` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -81,8 +90,9 @@ CREATE TABLE `user` (
   `email` varchar(250) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `password` varchar(250) DEFAULT NULL,
+  `exist` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `viewed` (
   `user_id` int(11) NOT NULL,
@@ -93,15 +103,38 @@ CREATE TABLE `viewed` (
   CONSTRAINT `viewed_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
 INSERT INTO `album` (`id`, `name`, `views`, `isprivate`, `likes`) VALUES
-(1, 'One Peice Red', NULL, 0, NULL);
+(1, 'One Piece Red', 59, 1, 10);
+INSERT INTO `album` (`id`, `name`, `views`, `isprivate`, `likes`) VALUES
+(2, 'action_lover', 23, 0, 0);
 
 
-INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `age`, `password`) VALUES
+
+
+
+
+
+
+INSERT INTO `likes_owner` (`user_id`, `album_id`) VALUES
+(2, 1);
+
+
+
+
+
+
+INSERT INTO `profile` (`id`, `user_id`, `informations`) VALUES
+(1, 3, NULL);
+
+
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `age`, `password`, `exist`) VALUES
 (1, 'Lynda', 'Benabdessadok', 'lynda.benabdessadok@edu.devinci.fr', 19, 'bb980824ae998bd9910de1516e91330c', 0);
-INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `age`, `password`) VALUES
-(2, 'Sara', 'Yeo', 'kpeusseu-sara-fiela.yeo@edu.devinci.fr', 18, 'e4703d6dbca3a6ec211d82f4dd116b84', 0);
-
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `age`, `password`, `exist`) VALUES
+(2, 'Sara', 'Yeo', 'kpeusseu-sara-fiela.yeo@edu.devinci.fr', 18, 'e4703d6dbca3a6ec211d82f4dd116b84', 1);
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `age`, `password`, `exist`) VALUES
+(3, 'Hoai Lan', 'Kirby', 'kishini@gmail.com', 21, '2de98d07ba22f08bf4991e6be86404b0', 0);
 
 
 
