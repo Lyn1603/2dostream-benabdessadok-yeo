@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input:focus {
+    outline: none;
+}
+
+.gradient{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, #000);
+    position: absolute;
+    z-index: 5;
+    border-radius: 0 0 8px 8px;
+}
+
+#album_list input{
+    background-color: transparent;
+    border: 1px solid #726F6F;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+#album_list select{
+    background-color: transparent;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+#album_list #button{
+    background-color: #AE0000;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    padding: 2px 12px;
+    color: white;
+}
+
+#genre_list li:nth-child(1){
+    margin-top: 30px;
+}
+
+#search_results li:nth-child(1){
+    margin-top: 30px;
+}
+
+#album_list li:nth-child(1){
+    margin-top: 30px;
+}
+
+#album_list li{
+    margin-top: 8px;
+}
+
+#album_list input{
+    padding-left: 6px;
+}
+
+#album_list li:last-child{
+    background-color: #AE0000;
+    color: white;
+    padding: 4px 6px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.movie h4 a{
+    margin-left: 2vh;
+    color: #726F6F;
+    opacity: 50%;
+}
+
+.movie h4 a:hover{
+    opacity: 80%;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.movie .affiche img{
+    border-radius: 20px;
+    /* height: 100%; */
+}
+
+.movie .acteur img {
+    border-radius:10px;
+}
+
+.movie .acteur::-webkit-scrollbar {
+    display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  
+  .movie h4 a {
+    display: none;
+  }
+
+  .movie .affiche img{
+    width: 100%;
+  }
+
+}
