@@ -5,6 +5,7 @@
 
 <body>
 <div id="movies"></div>
+<a href="album.php"> albums </a>
 
 </body>
 
@@ -28,9 +29,6 @@
             ul.appendChild(img);
             ul.appendChild(h3);
             ul.appendChild(p);
-
-
-
 
 
         })

@@ -31,12 +31,6 @@
     <input type="text" name="email"/>
     <br>
     <br>
-    <label> Age </label>
-    <br>
-    <br>
-    <input type="number" name="age"/>
-    <br>
-    <br>
     <label> Mot de Passe </label>
     <br>
     <br>
@@ -66,7 +60,6 @@ if ($_POST) {
         $_POST['firstname'],
         $_POST['lastname'],
         $_POST['email'],
-        $_POST['age'],
         $_POST['password'],
         $_POST['password1']
     );

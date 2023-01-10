@@ -7,14 +7,12 @@ class user
         public string $firstname,
         public string $lastname,
         public string $email,
-        public int $age,
         public string $password,
         public string $password1,
     )
     {
 
     }
-
     public function verify(): bool
     {
         $isValid = true;
@@ -30,6 +28,12 @@ class user
 
 
     }
+
+
+
+
+
+
 
 
 }

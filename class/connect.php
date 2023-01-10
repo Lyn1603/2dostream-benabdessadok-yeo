@@ -6,20 +6,19 @@ class connect
 
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:dbname=2doStream;host=127.0.0.1', 'root', '');
+        $this->pdo = new PDO('mysql:dbname=sostream;host=127.0.0.1', 'root', '');
     }
 
     public function insert(user $user)
     {
-        $query = 'INSERT INTO user (firstname, lastname, email,age, password)
-                VALUES (:firstname, :lastname,:email,:age, :password)';
+        $query = 'INSERT INTO user (firstname, lastname, email, password)
+                VALUES (:firstname, :lastname,:email, :password)';
         $statement = $this->pdo->prepare($query);
         return $statement->execute([
             'firstname' =>$user->firstname,
             'lastname' => $user->lastname,
             'email' => $user->email,
-            'age' => $user->age,
-            'password' => md5($user->password. 'MY_SUPER_SALT'),
+            'password' => md5($user->password . 'MY_SUPER_SALT'),
         ]);
     }
 
@@ -42,3 +41,4 @@ class connect
 
 
 }
+
