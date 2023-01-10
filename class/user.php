@@ -29,6 +29,14 @@ class user
 
     }
 
+    public function Liked($album_id)
+    {
+        $db = new Connect();
+        $request = $db->PDO->prepare('SELECT * FROM like_by WHERE album_id = :a AND user_id = :u');
+        $request->execute(['a' => $album_id, 'u' => $this->getID()]);
+        return sizeof($request->fetchAll()) > 0;
+    }
+
 
 
 

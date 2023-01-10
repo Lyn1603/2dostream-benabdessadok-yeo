@@ -182,6 +182,13 @@ class Album
             'id' => $id,
         ]);
     }
+    public function getID()
+    {
+        $db = new Connect();
+        $request = $db->pdo->prepare('SELECT id FROM user WHERE email=:email');
+        $request->execute(['email' => $this->email]);
+        return $request->fetchAll()[0]['id'];
+    }
 
     public function isContributor($stuff): bool
     {
