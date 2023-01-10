@@ -5,7 +5,8 @@
 
 <body>
 <div id="movies"></div>
-<a href="album.php"> albums </a>
+<button><a href="album.php"> albums </a> </button>
+<button> ajouter a un album </button>
 
 </body>
 

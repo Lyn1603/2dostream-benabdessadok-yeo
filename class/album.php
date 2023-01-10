@@ -45,7 +45,6 @@ class Album
     }
 
 
-
     public function getItems(): array|bool
     {
         $db = new Connect();
@@ -116,6 +115,113 @@ class Album
         return $result;
 
     }
+    public function add_al(Album $album)
+    {
+        $query = 'INSERT INTO album(name)
+                  VALUES(:name)';
+        $statement = $this->pdo->prepare($query);
+
+        return $statement->execute([
+            'name' => $album->name,
+
+        ]);
+    }
+    public function getthem(): array
+    {
+        $query = 'SELECT * FROM album';
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+        $result =$statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function link_generate($album_id, $key): bool
+    {
+        $db = new Connect();
+        $request = $db->PDO->prepare('INSERT INTO
+    										invitation(`key`, album_id, user_id,created_at)
+											VALUES(:key, :album_id, :user_id, NOW())');
+        return $request->execute([
+            'key' => $key,
+            'album_id' => $album_id,
+            'user_id' => $this->getID()
+        ]);
+    }
+
+    public function link_clear(): bool
+    {
+        $db = new Connect();
+        $request = $db->PDO->prepare('DELETE FROM invitation WHERE NOW() - 24*3600 > created_at -1');
+        return $request->execute();
+    }
+    public function contains($movie_id): bool
+    {
+        $db = new Connect();
+        $request = $db->pdo->prepare(
+            'SELECT * FROM movie_album WHERE album_id=:at AND movie_id=:la'
+        );
+        $request->execute([
+            'at' => $this->id,
+            'la' => $movie_id
+        ]);
+        return (sizeof($request->fetchAll())>0);
+    }
+
+    public function add($movie_id){
+        return $this->update('insert', $movie_id);
+    }
+
+    public function delete(int $id): bool
+    {
+        $query = 'DELETE FROM album
+                  WHERE id = :id';
+
+        $statement = $this->pdo->prepare($query);
+
+        return $statement->execute([
+            'id' => $id,
+        ]);
+    }
+
+    public function isContributor($stuff): bool
+    {
+        return false;
+    }
+
+    public function getStuff(): array
+    {
+        $db = new Connect();
+        $query = $db->pdo->prepare('SELECT * FROM profile WHERE user_id=' . $this->getID());
+        $query->execute();
+        $result = $query->fetchAll();
+        return sizeof($result) === 0 ? $result : $result[0];
+    }
+
+
+    public function getviewed(): array
+    {
+        $db = new Connect();
+        $query = $db->pdo->prepare('SELECT movie_id FROM viewed where user_id=' . $this->getID());
+        $query->execute();
+        $result = [];
+        foreach ($query->fetchAll() as $arr) {
+            $result[] = $arr['movie_id'];
+        }
+        return $result;
+    }
+
+    public function Liked(): array
+    {
+        $db = new Connect();
+        $query = $db->pdo->prepare('SELECT movie_id FROM later_on where user_id=' . $this->getID());
+        $query->execute();
+        $result = [];
+        foreach ($query->fetchAll() as $arr) {
+            $result[] = $arr['movie_id'];
+        }
+        return $result;
+    }
+
 
 
 }

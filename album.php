@@ -15,13 +15,6 @@ if($_GET && isset($_GET['id'])){
             header('location:./album.php?id='.$album->id);
         }
 
-        if($_POST && isset($_POST['delete_album'])){
-            if($_SESSION['user']->isContributor($stuff)){
-                Album::deleteAll($_GET['id']);
-                header('location:./profile.php');
-            }
-        }
-
         if(sizeof($stuff['movie']) === 0){
             header('location:./profile.php');
         }
@@ -40,6 +33,7 @@ if($_GET && isset($_GET['id'])){
                 <title>Document</title>
             </head>
             <body>
+
             <div >
 
                 <h1 ><?=($album->name)?></h1>
@@ -88,12 +82,35 @@ if($_GET && isset($_GET['id'])){
             ?>
 
             <main>
-                <h1>Cet album est privé</h1>
-                <p><i>Sa consultation est réservée aux contributeurs</i></p>
-                <a href="./profile.php?id=<?=htmlspecialchars($stuff['contributor'][0]['id'])?>">Retour</a>
+                <h1>album privé</h1>
+                <p><i>il ne vous appartiens pas</i></p>
+                <a href="./profile.php?id=<?=($stuff['contributor'][0]['id'])?>">Retour</a>
             </main>
 
             <?php
+                if($_POST) {
+
+                    $album = new Album(
+                        $_POST['name'],
+                    );
+                    if ($album->verif()) {
+                        //save to database
+                        $connection = new Album();
+                        $result =$connection-> add_al($album);
+                        if($result){
+                            echo 'new album registered';
+                        }else{
+                            echo 'internal error';
+                        }
+                    } else{
+                        echo 'form incomplete';
+                    }
+                }
+
+                require_once('.php');
+
+                $new= new Album();
+                $album = $new->getthem();
         }
     }
 }else{
